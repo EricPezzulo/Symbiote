@@ -1,0 +1,29 @@
+# Example systemd unit. Install:
+#   sudo useradd --system --home /opt/symbiote symbiote
+#   sudo cp -r worker /opt/symbiote/worker && cd /opt/symbiote/worker && npm ci && npm run build
+#   sudo install -m 600 -o symbiote .env /etc/symbiote-worker.env      # secrets live here
+#   sudo cp deploy/symbiote-worker.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now symbiote-worker
+#   journalctl -u symbiote-worker -f
+[Unit]
+Description=Symbiote price worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=symbiote
+WorkingDirectory=/opt/symbiote/worker
+EnvironmentFile=/etc/symbiote-worker.env
+ExecStart=/usr/bin/node dist/index.js
+Restart=always
+RestartSec=5
+# Graceful shutdown: the worker flushes pending writes on SIGTERM.
+TimeoutStopSec=15
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

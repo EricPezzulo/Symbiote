@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Latest Filings</title>
+  <entry>
+    <title type="html">8-K - Current report</title>
+    <link rel="alternate" type="text/html" href="https://www.sec.gov/Archives/edgar/data/320193/000032019326000001/0000320193-26-000001-index.htm"/>
+    <summary type="html">&lt;b&gt;Filed:&lt;/b&gt; 2026-10-22 &lt;b&gt;AccNo:&lt;/b&gt; 0000320193-26-000001 &lt;br&gt;Item 2.02: Results of Operations&lt;br&gt;Item 9.01: Exhibits</summary>
+    <updated>2026-10-22T16:05:00-04:00</updated>
+    <id>urn:tag:sec.gov,2008:accession-number=0000320193-26-000001</id>
+  </entry>
+  <entry>
+    <title>Self link only</title>
+    <link rel="self" href="https://example.com/self"/>
+    <link href="https://example.com/alt"/>
+    <updated>2026-10-21T00:00:00Z</updated>
+    <id>x</id>
+    <content type="text">Plain content</content>
+  </entry>
+</feed>
